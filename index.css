@@ -1,0 +1,662 @@
+:root {
+  --purple: rgba(108, 99, 255, 1);
+  --white: rgba(247, 247, 247, 1);
+  --black: rgba(37, 37, 37, 1);
+}
+
+@font-face {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  src: url(/src/Kanit-Medium.ttf);
+}
+
+body {
+  font-family: "Kanit", sans-serif;
+  font-weight: bold;
+}
+
+/* Header =*/
+.header {
+  display: flex;
+}
+
+.container {
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.header__title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 27px;
+  color: #252525;
+  margin-top: 40px;
+  line-height: 39px;
+}
+
+.header__menu {
+  display: flex;
+  position: relative;
+}
+
+.header__menu-search {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 600px;
+  height: 38px;
+  box-sizing: border-box;
+  border: 1px solid var(--purple);
+  border-radius: 5px;
+}
+
+.search {
+  border: none;
+  width: 533px;
+}
+
+.search:focus {
+  border: none;
+  outline: none;
+}
+
+/* Drop =*/
+.dropdown {
+  margin-left: 16px;
+  position: relative;
+  display: inline-block;
+  z-index: 5;
+}
+
+.dropdown-btn {
+  display: flex;
+  align-items: center;
+  background: #6b63ff;
+  color: white;
+  padding: 10px 13px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dropdown-btn:hover {
+  background-color: #5a52ff;
+  transform: translateY(-2px);
+}
+
+.dropdown-btn:active {
+  transform: scale(0.97);
+}
+
+.dropdown img {
+  margin-left: 7px;
+}
+
+/* Скрыто по умолчанию */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--purple);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+}
+
+/* Появление */
+.dropdown-content.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(108, 99, 255, 0.1);
+}
+
+/* Меню кнопок */
+.header__menu-button {
+  width: 38px;
+  height: 38px;
+  background-color: var(--purple);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding: 8px;
+  margin-left: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.header__menu-button:hover {
+  background-color: #5a52ff;
+  transform: translateY(-2px);
+}
+
+.header__menu-button:active {
+  transform: scale(0.95);
+}
+
+.header__menu-button img {
+  width: 22px;
+  height: 22px;
+}
+
+/* заметки */
+.notes {
+  font-family: "Kanit", sans-serif;
+  display: flex;
+  margin-top: 42px;
+  height: 100%;
+  position: relative;
+}
+.empty {
+  height: 600px;
+  width: 210px;
+  background-image: url(/src/img/Detective-check-footprint\ 1.png);
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.note__list-item {
+  align-items: center;
+  display: flex;
+  width: 520px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--purple);
+}
+.note__list-item:last-child {
+  border-bottom: none;
+}
+
+.item-cheakbox {
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--purple);
+  border-radius: 0.25rem;
+  background-color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-right: 17px;
+}
+
+.item-cheakbox:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+.item-cheakbox:checked ~ .item-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.item-text {
+  width: 445px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.note__edit-input {
+  width: 319px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+  text-transform: uppercase;
+  background-color: var(--white);
+  border: 2px solid var(--purple);
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: var(--black);
+  outline: none;
+  transition: all 0.25s ease;
+}
+.note__edit-input:focus {
+  border-color: #5a52ff;
+  box-shadow: 0 0 6px rgba(108, 99, 255, 0.4);
+  outline: none;
+}
+.item__hr {
+  border-color: var(--purple);
+  opacity: 0.5;
+}
+
+.note__active {
+  display: flex;
+}
+
+.note__active-btn-edit,
+.note__active-btn-remove {
+  background: transparent;
+  border: none;
+  display: none;
+}
+.note__active-btn-remove svg:hover {
+  fill: var(--purple);
+}
+.note__active-btn-edit svg:hover {
+  fill: var(--purple);
+}
+.active {
+  display: flex;
+}
+
+/* Создать заметку */
+.create_note {
+  background: transparent;
+  border: none;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 159px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.create_note img {
+  background-color: var(--purple);
+  border-radius: 50px;
+}
+
+.create_note:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(108, 99, 255, 0.3);
+}
+
+/* окно */
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+}
+
+.popup .popup__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  min-height: 200px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  margin-top: 40px;
+  gap: 30px;
+}
+
+.popup__form {
+  margin-top: -8px;
+  display: flex;
+  flex-direction: column;
+  gap: 240px;
+}
+
+.popup__title {
+  color: rgb(37, 37, 37);
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 20px auto;
+  transition: color 0.2s ease-in-out;
+}
+
+.popup__input {
+  border: 2px solid #6c63ff;
+  border-radius: 5px;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  height: 40px;
+  padding: 0 46px;
+  transition: 0.2s;
+  width: 84%;
+}
+
+.popup__input:focus {
+  border-color: #5a52ff;
+  outline: none;
+}
+
+/* кнопки окна */
+.popup__buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.popup__buttons button {
+  border-radius: 5px;
+  border: 2px solid var(--purple);
+  background-color: white;
+  padding: 10px 22px;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: var(--purple);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.popup__buttons button:hover {
+  background-color: var(--purple);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.popup__buttons button:active {
+  transform: scale(0.97);
+}
+
+/* Универсальные стили для кнопок  */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  margin: 0px 5px;
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: #5a52ff;
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+.btn-secondary:hover {
+  background-color: var(--purple);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: scale(0.97);
+}
+
+/* для js */
+.visible {
+  display: none;
+}
+.note__list-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.note__list-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.note__list-item.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* dark mode */
+
+.dark-mode {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+.dark-mode .header {
+  background-color: #1f1f1f;
+}
+
+.dark-mode .header__title {
+  color: #ffffff;
+}
+.dark-mode .header__menu-search {
+  border: 1px solid var(--white);
+}
+.dark-mode .search {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+.dark-mode .note__list-item {
+  border-bottom: 1px solid #6c63ff;
+}
+.dark-mode .note__list-item:last-child {
+  border-bottom: none;
+}
+
+.dark-mode .item-text {
+  color: #ffffff;
+}
+
+.dark-mode .note__active-btn-edit svg,
+.dark-mode .note__active-btn-remove svg {
+  stroke: #ffffff;
+}
+
+.dark-mode .popup__content {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode .popup__input {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border: 2px solid var(--white);
+}
+
+.dark-mode .btn-primary {
+  background-color: #6c63ff;
+  color: #ffffff;
+}
+
+.dark-mode .btn-secondary {
+  background-color: #1f1f1f;
+  color: #6c63ff;
+  border-color: #6c63ff;
+}
+
+.dark-mode .create_note img {
+  background-color: #6c63ff;
+}
+.dark-mode .popup__buttons button {
+  color: var(--white);
+  background-color: var(--purple);
+}
+.dark-mode .empty {
+  background-image: url(/src/img/Detective-check-footprint\ 1-1.png);
+}
+
+/* Адаптив  */
+@media (max-width: 765px) {
+  .container {
+    padding: 0 15px;
+  }
+  .header__menu {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .header__menu-search {
+    width: 100%;
+  }
+
+  .search {
+    width: 500px;
+  }
+
+  .dropdown {
+    width: 80%;
+    margin-left: 0px;
+  }
+
+  .dropdown-btn {
+    width: 58%;
+    justify-content: center;
+  }
+  .header__menu-button {
+    position: absolute;
+    top: 50px;
+    left: 474px;
+  }
+
+  .notes {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .note__list-item {
+    width: 520px;
+  }
+
+  .create_note {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .popup__buttons {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .item-cheakbox {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--purple);
+    border-radius: 0.25rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .header__menu {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .header__menu-search {
+    width: 100%;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .dropdown {
+    width: 80%;
+    margin-left: 0px;
+  }
+
+  .dropdown-btn {
+    width: 58%;
+    justify-content: center;
+  }
+  .header__menu-button {
+    position: absolute;
+    top: 48px;
+    left: 168px;
+  }
+
+  .notes {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .note__list-item {
+    width: 130%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .item-text {
+    width: 30%;
+    font-size: 16px;
+  }
+
+  .note__active {
+    width: 30%;
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .create_note {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .popup__input {
+    width: 100%;
+  }
+
+  .popup__buttons {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .item-cheakbox {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--purple);
+    border-radius: 0.25rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 5px;
+  }
+}
