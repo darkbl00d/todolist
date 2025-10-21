@@ -1,2 +1,21 @@
-# todolist
-A clean and responsive To-Do List app built with pure HTML, CSS, and JavaScript. Includes note creation, editing, deletion, search, filtering (All / Active / Completed), and dark mode with localStorage support.
+# To-Do List App
+Простое и современное приложение для управления задачами, созданное на **чистом JavaScript**, без фреймворков.  
+Позволяет добавлять, редактировать и удалять заметки, фильтровать по статусу, искать по тексту и сохраняет все данные в **localStorage**, чтобы ничего не терялось после перезагрузки страницы.
+
+## Основной функционал
+
+-  Добавление и редактирование заметок  
+- Отмечание выполненных задач (Active / Completed)  
+- Поиск по тексту заметок  
+- Поддержка тёмного режима (Dark Mode)  
+- Автоматическое сохранение данных в LocalStorage  
+- Адаптивный и минималистичный UI  
+
+## Технологии
+- **HTML5**
+- **CSS3 (Flexbox / переменные / dark mode)**
+- **Vanilla JavaScript (ES6+)**
+- **LocalStorage API**
+
+## Цель проекта
+Проект демонстрирует владение базовыми инструментами фронтенда, умение работать с DOM, событиями, состоянием, локальным хранилищем и адаптивной версткой.
