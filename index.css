@@ -171,7 +171,7 @@ body {
 .empty {
   height: 600px;
   width: 210px;
-  background-image: url(/src/img/Detective-check-footprint\ 1.png);
+  background-image: url(./src/img/Detective-check-footprint\ 1.png);
   background-repeat: no-repeat;
   background-position: top;
 }
@@ -508,7 +508,7 @@ body {
   background-color: var(--purple);
 }
 .dark-mode .empty {
-  background-image: url(/src/img/Detective-check-footprint\ 1-1.png);
+  background-image: url(./src/img/Detective-check-footprint\ 1-1.png);
 }
 
 /* Адаптив  */
